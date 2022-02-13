@@ -20,33 +20,34 @@ function addItem(inputText){
     const newItem = document.createElement("div");
         newItem.classList.add("item");
 
-           insertAfter(newItem,currentDiv);
+           currentDiv.appendChild(newItem);
     
     const itemText = document.createElement("p");
         itemText.innerHTML = inputText;
 
-           insertAfter(itemText,newItem);
+           newItem.appendChild(itemText);
 
     const chkContainer = document.createElement("div");
         chkContainer.classList.add("checkbox-container");
 
-            insertAfter(chkContainer,itemText);
+            newItem.appendChild(chkContainer);
 
     const checkBox = document.createElement("input");
         checkBox.type = "checkbox"
         checkBox.id = "chkbox"
 
-            insertAfter(checkBox,chkContainer);
+            chkContainer.appendChild(checkBox);
 
     const trashcan = document.createElement("div");
         trashcan.classList.add("trashcan-container");
 
-            insertAfter(trashcan,checkBox);
+            newItem.appendChild(trashcan);
     
     const trashicon = document.createElement("i");
         trashicon.classList.add("far fa-trash-alt");
+        trashicon['aria-hidden'] = true;
 
-            insertAfter(trashicon,trashcan);
+            trashcan.appendChild(trashicon);
 
     /* insertAfter(trashicon,trashcan); */
 }
